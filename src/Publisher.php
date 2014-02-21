@@ -46,8 +46,9 @@ class Publisher extends \DataExtension {
 				$body = $response->getBody();
 			}
 
-			$key = $this->getKeyForURL($url);
-			$model = $this->bucket->upload($key, $body);
+			$model = $this->bucket->upload($this->getKeyForURL($url), $body, array(
+				'ContentType' => $response->getHeader('Content-Type')
+			));
 
 			$result[$url] = $data + array('path' => $model['ObjectURL']);
 		}

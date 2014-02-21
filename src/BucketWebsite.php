@@ -47,10 +47,13 @@ class BucketWebsite {
 	/**
 	 * @param string $key
 	 * @param mixed $body
+	 * @param array $params
 	 * @return \Guzzle\Service\Resource\Model
 	 */
-	public function upload($key, $body) {
-		return $this->client->upload($this->bucket, $key, $body);
+	public function upload($key, $body, array $params = array()) {
+		return $this->client->upload($this->bucket, $key, $body, 'private', array(
+			'params' => $params
+		));
 	}
 
 }
