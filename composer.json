@@ -1,0 +1,25 @@
+{
+	"name": "silverstripe-australia/s3publisher",
+	"description": "A static publisher which publishes the site to an S3 bucket",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "s3", "static"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Andrew Short",
+			"email": "andrew@silverstripe.com.au"
+		}
+	],
+	"require": {
+		"aws/aws-sdk-php": "2.*",
+		"silverstripe/staticpublishqueue": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"SilverStripeAustralia\\S3Publisher": "src"
+		}
+	},
+	"extra": {
+		"installer-name": "s3publisher"
+	}
+}

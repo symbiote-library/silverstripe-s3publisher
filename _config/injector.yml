@@ -1,0 +1,11 @@
+Injector:
+  SilverStripeAustralia\S3Publisher\BucketWebsite:
+    factory: SilverStripeAustralia\S3Publisher\BucketWebsiteFactory
+
+  SilverStripeAustralia\S3Publisher\ConfigureBucketTask:
+    constructor:
+      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+
+  SilverStripeAustralia\S3Publisher\Publisher:
+    constructor:
+      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
