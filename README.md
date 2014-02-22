@@ -16,10 +16,10 @@ bucket details, and apply the `Publisher` extension to `SiteTree`:
 ```yaml
 Injector:
   SilverStripeAustralia\S3Publisher\BucketWebsiteFactory:
-    constructor:
-      - <key>
-      - <secret>
-      - <bucket name>
+    properties:
+      key: <key>
+      secret: <secret>
+      bucket: <bucket name>
 
 SiteTree:
   extensions:
