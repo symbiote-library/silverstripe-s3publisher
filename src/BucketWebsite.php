@@ -38,12 +38,6 @@ class BucketWebsite {
 		return $this->bucket;
 	}
 
-	public function configure() {
-		return $this->client->putBucketWebsite(array(
-			'Bucket' => $this->bucket
-		));
-	}
-
 	/**
 	 * @param string $key
 	 * @param mixed $body

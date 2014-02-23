@@ -26,5 +26,4 @@ SiteTree:
     - SilverStripeAustralia\S3Publisher\Publisher
 ```
 
-Once this is done, you can then run the "Configure Website Bucket Task" build task to set up the S3 bucket to serve the
-site. You can then run the static publish queue, and it will publish the site to your S3 bucket as static HTML files.
+You can then run the static publish queue, and it will publish the site to your S3 bucket as static HTML files.
