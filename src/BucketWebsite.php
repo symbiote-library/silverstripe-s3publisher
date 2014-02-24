@@ -3,6 +3,7 @@
 namespace SilverStripeAustralia\S3Publisher;
 
 use Aws\S3\S3Client;
+use Symfony\Component\Finder\Finder;
 
 /**
  * A bucket to which the website is published.
@@ -48,6 +49,20 @@ class BucketWebsite {
 		return $this->client->upload($this->bucket, $key, $body, 'private', array(
 			'params' => $params
 		));
+	}
+
+	/**
+	 * Gets the local website asset files, relative to the site root.
+	 *
+	 * @return \SplFileInfo[]
+	 */
+	public function getAssetFiles() {
+		$finder = new Finder();
+
+		return $finder
+			->files()
+			->notName('*.ss')
+			->in(THEMES_PATH);
 	}
 
 }

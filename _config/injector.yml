@@ -9,3 +9,7 @@ Injector:
   SilverStripeAustralia\S3Publisher\Publisher:
     constructor:
       - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+
+  SilverStripeAustralia\S3Publisher\UploadAssetsTask:
+    constructor:
+      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
