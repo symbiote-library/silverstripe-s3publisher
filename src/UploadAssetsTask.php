@@ -9,7 +9,7 @@ use Guzzle\Http\Mimetypes;
  */
 class UploadAssetsTask extends \BuildTask {
 
-	protected $title = 'Upload S3 Assets';
+	protected $title = 'Upload S3 Bucket Assets';
 
 	protected $description = 'Uploads bucket website assets to S3';
 
@@ -24,6 +24,9 @@ class UploadAssetsTask extends \BuildTask {
 	}
 
 	public function run($request) {
+		echo "<p>Uploading assets...\n</p>";
+		echo "<ul>\n";
+
 		foreach($this->website->getAssetFiles() as $asset) {
 			$pathname = $asset->getPathname();
 			$key = $pathname;
@@ -35,7 +38,12 @@ class UploadAssetsTask extends \BuildTask {
 			$this->website->upload($key, fopen($pathname, 'r'), array(
 				'ContentType' => Mimetypes::getInstance()->fromFilename($asset->getFilename())
 			));
+
+			echo "<li>Uploaded \"$key\"</li>\n";
 		}
+
+		echo "</ul>\n";
+		echo "<p>Upload complete</p>\n";
 	}
 
 }
