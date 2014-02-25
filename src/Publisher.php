@@ -2,6 +2,7 @@
 
 namespace SilverStripeAustralia\S3Publisher;
 
+use Config;
 use Convert;
 use Director;
 
@@ -22,6 +23,12 @@ class Publisher extends \DataExtension {
 
 	public function publishPages(array $urls) {
 		$result = array();
+
+		Config::nest();
+
+		if(($baseURL = $this->bucket->getBaseURL()) !== null) {
+			Config::inst()->update('Director', 'alternate_base_url', $baseURL);
+		}
 
 		foreach($urls as $url) {
 			try {
@@ -52,6 +59,8 @@ class Publisher extends \DataExtension {
 
 			$result[$url] = $data + array('path' => $model['ObjectURL']);
 		}
+
+		Config::unnest();
 
 		return $result;
 	}

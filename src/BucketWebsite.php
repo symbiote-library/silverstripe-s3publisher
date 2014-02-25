@@ -20,6 +20,11 @@ class BucketWebsite {
 	 */
 	private $bucket;
 
+	/**
+	 * @var string
+	 */
+	private $baseURL;
+
 	public function __construct(S3Client $client, $bucket) {
 		$this->client = $client;
 		$this->bucket = $bucket;
@@ -33,10 +38,26 @@ class BucketWebsite {
 	}
 
 	/**
-	 * @return \Guzzle\Service\Resource\Model
+	 * @return string
 	 */
-	public function getConfiguration() {
-		return $this->client->getBucketWebsite(array('Bucket' => $this->bucket));
+	public function getBucket() {
+		return $this->bucket;
+	}
+
+	/**
+	 * Gets the base URL to use when generating website pages.
+	 *
+	 * @return string
+	 */
+	public function getBaseURL() {
+		return $this->baseURL;
+	}
+
+	/**
+	 * @param string $baseURL
+	 */
+	public function setBaseURL($baseURL) {
+		$this->baseURL = $baseURL;
 	}
 
 	/**
@@ -52,13 +73,6 @@ class BucketWebsite {
 			'IndexDocument' => array('Suffix' => 'index.html'),
 			'ErrorDocument' => array('Key' => "$error.html")
 		));
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getBucket() {
-		return $this->bucket;
 	}
 
 	/**

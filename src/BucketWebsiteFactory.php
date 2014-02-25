@@ -12,9 +12,13 @@ class BucketWebsiteFactory implements Factory {
 
 	public $client;
 	public $bucket;
+	public $baseURL;
 
 	public function create($service, array $params = array()) {
-		return new BucketWebsite(S3Client::factory($this->client), $this->bucket);
+		$website = new BucketWebsite(S3Client::factory($this->client), $this->bucket);
+		$website->setBaseURL($this->baseURL);
+
+		return $website;
 	}
 
 }
