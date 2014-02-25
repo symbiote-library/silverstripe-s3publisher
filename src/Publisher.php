@@ -57,15 +57,13 @@ class Publisher extends \DataExtension {
 	}
 
 	private function getKeyForURL($url) {
-		$parts = @parse_url($url);
-		$path = isset($parts['path']) ? $parts['path'] : '';
+		$path = parse_url($url, PHP_URL_PATH);
 
 		if(stripos($path, BASE_URL) === 0) {
 			$path = substr($path, strlen(BASE_URL));
 		}
 
-		$path = trim($path, '/');
-		return $path ? "$path.html" : 'index.html';
+		return ($path = trim($path, '/')) ? "$path.html" : 'index.html';
 	}
 
 }
