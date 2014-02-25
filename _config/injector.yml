@@ -5,6 +5,7 @@ Injector:
   SilverStripeAustralia\S3Publisher\ConfigureBucketTask:
     constructor:
       - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+      - %$DataModel
 
   SilverStripeAustralia\S3Publisher\Publisher:
     constructor:

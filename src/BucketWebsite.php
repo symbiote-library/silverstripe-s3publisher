@@ -33,6 +33,28 @@ class BucketWebsite {
 	}
 
 	/**
+	 * @return \Guzzle\Service\Resource\Model
+	 */
+	public function getConfiguration() {
+		return $this->client->getBucketWebsite(array('Bucket' => $this->bucket));
+	}
+
+	/**
+	 * @param \DataModel $model
+	 */
+	public function configure(\DataModel $model) {
+		/** @var \ErrorPage $error */
+		$error = $model->ErrorPage->filter('ErrorCode', 404)->first();
+		$error = $error ? trim($error->RelativeLink(), '/') : 'error';
+
+		$this->client->putBucketWebsite(array(
+			'Bucket' => $this->bucket,
+			'IndexDocument' => array('Suffix' => 'index.html'),
+			'ErrorDocument' => array('Key' => "$error.html")
+		));
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getBucket() {
