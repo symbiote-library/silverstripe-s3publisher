@@ -10,17 +10,11 @@ use SilverStripe\Framework\Injector\Factory;
  */
 class BucketWebsiteFactory implements Factory {
 
-	public $key;
-	public $secret;
+	public $client;
 	public $bucket;
 
 	public function create($service, array $params = array()) {
-		$client = S3Client::factory(array(
-			'key' => $this->key,
-			'secret' => $this->secret
-		));
-
-		return new BucketWebsite($client, $this->bucket);
+		return new BucketWebsite(S3Client::factory($this->client), $this->bucket);
 	}
 
 }

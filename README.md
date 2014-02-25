@@ -17,9 +17,10 @@ bucket details, and apply the `Publisher` extension to `SiteTree`:
 Injector:
   SilverStripeAustralia\S3Publisher\BucketWebsiteFactory:
     properties:
-      key: <key>
-      secret: <secret>
-      bucket: <bucket name>
+      client:
+        key: "<key>"
+        secret: "<secret>"
+      bucket: "<bucket>"
 
 SiteTree:
   extensions:
