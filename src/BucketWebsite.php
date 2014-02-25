@@ -71,7 +71,7 @@ class BucketWebsite {
 		$this->client->putBucketWebsite(array(
 			'Bucket' => $this->bucket,
 			'IndexDocument' => array('Suffix' => 'index.html'),
-			'ErrorDocument' => array('Key' => "$error.html")
+			'ErrorDocument' => array('Key' => "$error/index.html")
 		));
 	}
 

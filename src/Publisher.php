@@ -72,7 +72,7 @@ class Publisher extends \DataExtension {
 			$path = substr($path, strlen(BASE_URL));
 		}
 
-		return ($path = trim($path, '/')) ? "$path.html" : 'index.html';
+		return ($path = trim($path, '/')) ? "$path/index.html" : 'index.html';
 	}
 
 }
