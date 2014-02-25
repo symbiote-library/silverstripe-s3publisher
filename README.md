@@ -21,6 +21,7 @@ Injector:
         key: "<key>"
         secret: "<secret>"
       bucket: "<bucket>"
+      baseURL: "<website-base-url>"
 
 SiteTree:
   extensions:
