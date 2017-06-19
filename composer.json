@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe-australia/s3publisher",
+	"name": "symbiote-library/silverstripe-s3publisher",
 	"description": "A static publisher which publishes the site to an S3 bucket",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "s3", "static"],
