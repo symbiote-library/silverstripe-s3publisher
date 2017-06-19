@@ -19,7 +19,7 @@ bucket details, and apply the `Publisher` extension to `SiteTree`:
 
 ```yaml
 Injector:
-  SilverStripeAustralia\S3Publisher\BucketWebsiteFactory:
+  Symbiote\S3Publisher\BucketWebsiteFactory:
     properties:
       client:
         key: "<key>"
@@ -29,7 +29,7 @@ Injector:
 
 SiteTree:
   extensions:
-    - SilverStripeAustralia\S3Publisher\Publisher
+    - Symbiote\S3Publisher\Publisher
 ```
 
 You can then run the static publish queue, and it will publish the site to your S3 bucket as static HTML files. There

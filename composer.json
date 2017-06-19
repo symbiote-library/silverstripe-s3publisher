@@ -17,10 +17,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"SilverStripeAustralia\\S3Publisher": "src"
+			"Symbiote\\S3Publisher": "src"
 		}
 	},
 	"extra": {
-		"installer-name": "s3publisher"
+		"installer-name": "s3publisher",
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
 	}
 }

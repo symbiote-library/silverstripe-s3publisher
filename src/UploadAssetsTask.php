@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverStripeAustralia\S3Publisher;
+namespace Symbiote\S3Publisher;
 
 use Guzzle\Http\Mimetypes;
 

@@ -1,16 +1,16 @@
 Injector:
-  SilverStripeAustralia\S3Publisher\BucketWebsite:
-    factory: SilverStripeAustralia\S3Publisher\BucketWebsiteFactory
+  Symbiote\S3Publisher\BucketWebsite:
+    factory: Symbiote\S3Publisher\BucketWebsiteFactory
 
-  SilverStripeAustralia\S3Publisher\ConfigureBucketTask:
+  Symbiote\S3Publisher\ConfigureBucketTask:
     constructor:
-      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+      - %$Symbiote\S3Publisher\BucketWebsite
       - %$DataModel
 
-  SilverStripeAustralia\S3Publisher\Publisher:
+  Symbiote\S3Publisher\Publisher:
     constructor:
-      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+      - %$Symbiote\S3Publisher\BucketWebsite
 
-  SilverStripeAustralia\S3Publisher\UploadAssetsTask:
+  Symbiote\S3Publisher\UploadAssetsTask:
     constructor:
-      - %$SilverStripeAustralia\S3Publisher\BucketWebsite
+      - %$Symbiote\S3Publisher\BucketWebsite
