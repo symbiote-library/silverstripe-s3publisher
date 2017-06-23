@@ -9,7 +9,7 @@ Provides a static publish queue compatible publisher which publishes a copy of t
 
 Maintainer Contacts
 -------------------
-*  Andrew Short (<andrew@silverstripe.com.au>)
+*  Andrew Short (<andrew@symbiote.com.au>)
 
 Installation
 ------------
